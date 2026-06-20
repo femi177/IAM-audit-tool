@@ -1,0 +1,78 @@
+username,full_name,department,title,roles,last_login_days_ago,mfa_enabled,account_status,manager,location
+cthompson,Caroline Thompson,Executive,Chief Executive Officer,"Executive_Full,Admin_Global,Finance_Approver_L3,HR_Admin,Board_Portal",1,True,Active,,London
+rwilliams,Robert Williams,Executive,Chief Financial Officer,"Executive_Full,Admin_Global,Finance_Approver_L3,Finance_Reader,Board_Portal",2,True,Active,cthompson,London
+aokafor,Adaeze Okafor,Executive,Chief Information Security Officer,"Executive_Full,Admin_Global,Security_Admin,SOC_Manager,IR_Lead,Board_Portal",1,True,Active,cthompson,London
+dpatel,Deepak Patel,Executive,Chief Technology Officer,"Executive_Full,Admin_Global,IT_Admin,Cloud_Admin,Board_Portal",3,True,Active,cthompson,London
+sjohnson,Sarah Johnson,Executive,Chief People Officer,"Executive_Full,HR_Admin,HR_Reader,Payroll_Admin,Board_Portal",2,True,Active,cthompson,London
+mharrison,Marcus Harrison,Finance,Finance Director,"Finance_Approver_L2,Finance_Reader,Report_Writer,Budget_Admin",4,True,Active,rwilliams,Manchester
+lchen,Linda Chen,Finance,Senior Finance Manager,"Finance_Approver_L1,Finance_Reader,Report_Writer,Budget_Admin",5,True,Active,mharrison,London
+tobinna,Tunde Obinna,Finance,Finance Manager,"Finance_Approver_L1,Finance_Reader,Report_Writer",8,True,Active,mharrison,London
+ephillips,Emma Phillips,Finance,Financial Analyst,"Finance_Reader,Report_Writer",3,True,Active,lchen,London
+awhite,Andrew White,Finance,Financial Analyst,"Finance_Reader,Report_Writer",12,True,Active,lchen,London
+kbalogun,Kemi Balogun,Finance,Accounts Payable Specialist,Finance_Reader,7,False,Active,tobinna,London
+jrobinson,James Robinson,Finance,Accounts Receivable Specialist,Finance_Reader,45,True,Active,tobinna,Manchester
+pnwachukwu,Patricia Nwachukwu,Finance,Junior Financial Analyst,Finance_Reader,91,False,Active,lchen,London
+gwatson,George Watson,Finance,Payroll Specialist,"Finance_Reader,Payroll_Admin",6,True,Active,mharrison,Manchester
+htaylor,Hannah Taylor,Finance,Finance Assistant,Finance_Reader,200,False,Inactive,mharrison,London
+nclarke,Nathan Clarke,IT,IT Director,"IT_Admin,Network_Admin,Cloud_Admin,Server_Admin,IT_ServiceDesk",2,True,Active,dpatel,London
+bwright,Bethany Wright,IT,Senior Systems Engineer,"IT_Admin,Server_Admin,Cloud_Admin",4,True,Active,nclarke,London
+oadeleke,Oluwaseun Adeleke,IT,Cloud Infrastructure Engineer,"Cloud_Admin,Server_Admin,IT_ServiceDesk",3,True,Active,nclarke,London
+fwalker,Fiona Walker,IT,Network Engineer,"Network_Admin,IT_ServiceDesk",6,True,Active,nclarke,Manchester
+dmorris,Daniel Morris,IT,Systems Administrator,"Server_Admin,IT_ServiceDesk",9,True,Active,bwright,London
+rjackson,Rachel Jackson,IT,IT Support Analyst,IT_ServiceDesk,5,True,Active,nclarke,London
+cezeudo,Chisom Ezeudo,IT,IT Support Analyst,IT_ServiceDesk,14,False,Active,nclarke,London
+smitchell,Steven Mitchell,IT,Database Administrator,"DB_Admin,Server_Admin",7,True,Active,bwright,London
+tmartin,Thomas Martin,IT,Junior Systems Administrator,IT_ServiceDesk,365,True,Inactive,nclarke,London
+vpeters,Victoria Peters,IT,IT Apprentice,IT_ServiceDesk,0,False,Active,rjackson,London
+fadesanya,Funmilayo Adesanya,Security,Security Operations Manager,"SOC_Manager,SOC_L2,Threat_Intel,IR_Lead,Security_Admin",2,True,Active,aokafor,London
+chiamaka,Chiamaka Obi,Security,Senior SOC Analyst,"SOC_L2,Threat_Intel,IR_Lead,Sec_Analyst",3,True,Active,fadesanya,London
+bcooper,Benjamin Cooper,Security,SOC Analyst L2,"SOC_L2,Sec_Analyst,Threat_Intel",5,True,Active,fadesanya,London
+lhughes,Lauren Hughes,Security,SOC Analyst L1,"SOC_L1,Sec_Analyst",8,True,Active,chiamaka,London
+iedwards,Ian Edwards,Security,SOC Analyst L1,"SOC_L1,Sec_Analyst",11,True,Active,chiamaka,Manchester
+mturner,Michelle Turner,Security,Threat Intelligence Analyst,"Threat_Intel,Sec_Analyst",6,True,Active,fadesanya,London
+jbrown,James Brown,Security,Penetration Tester,"Pen_Tester,Sec_Analyst,Threat_Intel",4,True,Active,fadesanya,London
+yabdullahi,Yusuf Abdullahi,Security,Junior SOC Analyst,SOC_L1,95,False,Active,chiamaka,London
+ngreen,Natalie Green,Security,Security Analyst,Sec_Analyst,7,True,Active,fadesanya,London
+koyedele,Kunle Oyedele,Security,GRC Analyst,"GRC_Admin,Sec_Analyst,Compliance_Reader",9,True,Active,aokafor,London
+scarr,Sophie Carr,HR,HR Director,"HR_Admin,HR_Reader,Payroll_Admin,Recruitment_Admin",3,True,Active,sjohnson,London
+danderson,David Anderson,HR,Senior HR Business Partner,"HR_Admin,HR_Reader,Recruitment_Admin",5,True,Active,scarr,London
+fokorie,Folake Okorie,HR,HR Business Partner,"HR_Reader,Recruitment_Admin",7,True,Active,scarr,Manchester
+cevans,Charlotte Evans,HR,Talent Acquisition Manager,"HR_Reader,Recruitment_Admin",4,True,Active,danderson,London
+lrodriguez,Luis Rodriguez,HR,HR Coordinator,HR_Reader,18,False,Active,danderson,London
+rthompson,Ruth Thompson,HR,Learning and Development Specialist,HR_Reader,110,False,Active,scarr,London
+anwosu,Adaora Nwosu,HR,HR Administrator,HR_Reader,88,False,Active,fokorie,Manchester
+jnelson,Jacob Nelson,HR,HR Assistant,HR_Reader,0,True,Active,cevans,London
+pdavis,Patricia Davis,Legal,General Counsel,"Legal_Admin,Legal_Reader,Compliance_Reader,Board_Portal",4,True,Active,cthompson,London
+slewis,Samuel Lewis,Legal,Senior Legal Counsel,"Legal_Admin,Legal_Reader,Compliance_Reader",6,True,Active,pdavis,London
+ikanu,Ifeoma Kanu,Legal,Legal Counsel,"Legal_Reader,Compliance_Reader",9,True,Active,pdavis,London
+hwilson,Hannah Wilson,Legal,Paralegal,Legal_Reader,22,False,Active,slewis,London
+mrobinson,Michael Robinson,Legal,Legal Administrator,Legal_Reader,250,False,Inactive,,London
+tharris,Thomas Harris,Engineering,Engineering Director,"Eng_Admin,Eng_Writer,Eng_Reader,Project_Admin",5,True,Active,dpatel,London
+aokeke,Amaka Okeke,Engineering,Principal Engineer,"Eng_Admin,Eng_Writer,Eng_Reader",3,True,Active,tharris,London
+gjones,Grace Jones,Engineering,Senior Software Engineer,"Eng_Writer,Eng_Reader",7,True,Active,aokeke,London
+rsmith,Ryan Smith,Engineering,Senior Software Engineer,"Eng_Writer,Eng_Reader",12,True,Active,aokeke,Manchester
+eadeyemi,Emeka Adeyemi,Engineering,Software Engineer,"Eng_Writer,Eng_Reader",6,True,Active,gjones,London
+ctaylor,Christopher Taylor,Engineering,Software Engineer,"Eng_Writer,Eng_Reader",5,True,Active,gjones,London
+ibaker,Isabel Baker,Engineering,Junior Software Engineer,Eng_Reader,4,True,Active,rsmith,Manchester
+nchukwu,Ngozi Chukwu,Engineering,QA Engineer,"QA_Admin,Eng_Reader",8,True,Active,tharris,London
+mallen,Matthew Allen,Engineering,QA Engineer,"QA_Admin,Eng_Reader",180,False,Inactive,tharris,London
+byoung,Bradley Young,Engineering,DevOps Engineer,"Cloud_Admin,Eng_Writer,Eng_Reader,Server_Admin",3,True,Active,tharris,London
+jkingsley,Jerome Kingsley,Engineering,Junior DevOps Engineer,"Eng_Reader,IT_ServiceDesk",0,False,Active,,London
+pcollins,Peter Collins,Sales,Sales Director,"Sales_Admin,Sales_Reader,Finance_Reader,CRM_Admin",2,True,Active,cthompson,London
+asmith,Amanda Smith,Sales,Senior Account Manager,"Sales_Reader,CRM_Admin",5,True,Active,pcollins,London
+babimbola,Babatunde Abimbola,Sales,Account Manager,"Sales_Reader,CRM_Admin",9,True,Active,pcollins,Manchester
+cbell,Catherine Bell,Sales,Account Manager,"Sales_Reader,CRM_Admin",7,True,Active,pcollins,London
+dking,Daniel King,Sales,Sales Development Rep,Sales_Reader,92,False,Active,asmith,London
+emueller,Emily Mueller,Sales,Sales Development Rep,Sales_Reader,6,True,Active,asmith,London
+fmurphy,Fiona Murphy,Sales,Sales Coordinator,Sales_Reader,14,True,Active,pcollins,London
+gscott,Gordon Scott,Marketing,Marketing Director,"Marketing_Admin,Marketing_Reader,Analytics_Admin,Finance_Reader",4,True,Active,cthompson,London
+hbennett,Holly Bennett,Marketing,Digital Marketing Manager,"Marketing_Admin,Marketing_Reader,Analytics_Admin",6,True,Active,gscott,London
+ijames,Irene James,Marketing,Content Marketing Manager,"Marketing_Reader,Analytics_Admin",8,True,Active,gscott,London
+japara,Julius Apara,Marketing,SEO Specialist,"Marketing_Reader,Analytics_Admin",3,True,Active,hbennett,London
+kphillips,Karen Phillips,Marketing,Social Media Manager,Marketing_Reader,130,False,Active,hbennett,London
+lross,Laura Ross,Marketing,Marketing Coordinator,Marketing_Reader,7,True,Active,gscott,London
+aforbes,Angela Forbes,Operations,Operations Director,"Ops_Admin,Ops_Reader,Finance_Reader,Project_Admin",3,True,Active,cthompson,London
+bodonoghue,Brian O'Donoghue,Operations,Operations Manager,"Ops_Admin,Ops_Reader,Project_Admin",5,True,Active,aforbes,Manchester
+cchukwuemeka,Chidi Chukwuemeka,Operations,Operations Analyst,"Ops_Reader,Analytics_Admin",11,True,Active,aforbes,London
+ddixon,Dorothy Dixon,Operations,Facilities Manager,Ops_Reader,9,False,Active,bodonoghue,Manchester
+ewood,Eleanor Wood,Operations,Office Manager,Ops_Reader,6,True,Active,bodonoghue,London
