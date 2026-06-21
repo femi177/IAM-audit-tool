@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IAM AccessRisk Report</title>
+</head>
+
+<body>
+
+    <h1>IAM Access Risk Report</h1>
+
+    <p>Total Findings: {{ total_findings }}</p>
+
+    <ul>
+
+        {% for finding in findings %}
+
+        <li>{{ finding }}</li>
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>
