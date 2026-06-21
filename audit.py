@@ -1,5 +1,8 @@
 import pandas as pd
 import argparse
+from pathlib import Path
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
 
 DEFAULT_STALE_DAYS = 90
 DEFAULT_MAX_ROLES = 5
@@ -65,6 +68,45 @@ def run_checks(df):
     return findings
 
 
+def generate_html(findings):
+
+    env = Environment(
+
+        loader=FileSystemLoader(
+
+            "templates"
+
+        )
+
+    )
+
+    template = env.get_template(
+
+        "report_template.html"
+
+    )
+
+    html = template.render(
+
+        findings=findings,
+
+        total_findings=len(findings)
+
+    )
+
+    Path(
+
+        "reports/report.html"
+
+    ).write_text(
+
+        html,
+
+        encoding="utf-8"
+
+    )
+
+
 def main():
 
     parser = argparse.ArgumentParser()
@@ -79,6 +121,11 @@ def main():
     df = load_users(args.input)
 
     findings = run_checks(df)
+
+    generate_html(findings)
+
+    print("\nHTML report generated")
+    print("reports/report.html")
 
     print("\nIAM Audit Tool")
     print("------------------------------")
