@@ -2,14 +2,133 @@
 <html>
 
 <head>
+
     <title>IAM Access Risk Report</title>
+
+    <style>
+        body {
+
+            font-family: Arial;
+
+            margin: 40px;
+
+        }
+
+
+        .stats {
+
+            display: flex;
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .card {
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            min-width: 140px;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .critical {
+
+            background: #c0392b;
+
+        }
+
+
+        .high {
+
+            background: #e67e22;
+
+        }
+
+
+        .medium {
+
+            background: #3498db;
+
+        }
+
+
+        .total {
+
+            background: #2c3e50;
+
+        }
+
+
+        ul {
+
+            line-height: 1.8;
+
+        }
+    </style>
+
 </head>
 
 <body>
 
+
     <h1>IAM Access Risk Report</h1>
 
-    <p>Total Findings : 39</p>
+
+    <div class="stats">
+
+
+        <div class="card critical">
+
+            <h2>23</h2>
+
+            <p>Critical</p>
+
+        </div>
+
+
+
+        <div class="card high">
+
+            <h2>13</h2>
+
+            <p>High</p>
+
+        </div>
+
+
+
+        <div class="card medium">
+
+            <h2>3</h2>
+
+            <p>Medium</p>
+
+        </div>
+
+
+
+        <div class="card total">
+
+            <h2>39</h2>
+
+            <p>Total</p>
+
+        </div>
+
+
+    </div>
+
+
 
     <ul>
 
@@ -172,6 +291,7 @@
         
 
     </ul>
+
 
 </body>
 

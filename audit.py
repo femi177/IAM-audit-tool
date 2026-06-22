@@ -90,7 +90,31 @@ def generate_html(findings):
 
         findings=findings,
 
-        total_findings=len(findings)
+        total_findings=len(findings),
+
+        critical=sum(
+
+            "CRITICAL" in f
+
+            for f in findings
+
+        ),
+
+        high=sum(
+
+            "HIGH" in f
+
+            for f in findings
+
+        ),
+
+        medium=sum(
+
+            "MEDIUM" in f
+
+            for f in findings
+
+        )
 
     )
 
