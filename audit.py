@@ -68,6 +68,38 @@ def run_checks(df):
     return findings
 
 
+def build_rule_summary(findings):
+
+    rules = {
+        "IAM-001": "Stale Account",
+        "IAM-002": "Excessive Roles",
+        "IAM-003": "MFA Disabled",
+        "IAM-004": "Inactive Account",
+        "IAM-005": "Missing Manager"
+    }
+
+    counts = {rule: 0 for rule in rules}
+
+    for finding in findings:
+
+        for rule in rules:
+
+            if rule in finding:
+                counts[rule] += 1
+
+    return [
+
+        {
+            "rule": rule,
+            "name": rules[rule],
+            "count": counts[rule]
+        }
+
+        for rule in rules
+
+    ]
+
+
 def generate_html(findings):
 
     env = Environment(
@@ -114,7 +146,8 @@ def generate_html(findings):
 
             for f in findings
 
-        )
+        ),
+        rules=build_rule_summary(findings)
 
     )
 
