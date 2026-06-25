@@ -27,6 +27,16 @@ REQUIRED_COLUMNS = [
 
 ]
 
+VALID_ACCOUNT_STATUS = {
+
+    "active",
+
+    "inactive",
+
+    "disabled"
+
+}
+
 
 def validate_csv(df):
 
@@ -58,14 +68,46 @@ def validate_csv(df):
 
         )
 
+    invalid_status = (
+
+        df["account_status"]
+
+        .astype(str)
+
+        .str.lower()
+
+        .str.strip()
+
+    )
+
+    bad = [
+
+        value
+
+        for value in invalid_status.unique()
+
+        if value and value not in VALID_ACCOUNT_STATUS
+
+    ]
+
+    if bad:
+
+        raise ValueError(
+
+            f"Invalid account status values: "
+
+            f"{', '.join(bad)}"
+
+        )
+
 
 def load_users(path):
-    df = pd.read_csv(path)
 
     try:
+
         df = pd.read_csv(path)
 
-    except Exception as e:
+    except FileNotFoundError:
 
         raise FileNotFoundError(
 
@@ -79,6 +121,18 @@ def load_users(path):
         )
 
     validate_csv(df)
+
+    df["account_status"] = (
+
+        df["account_status"]
+
+        .astype(str)
+
+        .str.lower()
+
+        .str.strip()
+
+    )
 
     df["mfa_enabled"] = (
         df["mfa_enabled"]
@@ -124,7 +178,7 @@ def run_checks(df):
                 f"[CRITICAL] IAM-003 {user['username']} MFA disabled"
             )
 
-        if user["account_status"].lower() == "inactive":
+        if user["account_status"] == "inactive":
             findings.append(
                 f"[HIGH] IAM-004 {user['username']} inactive account"
             )
