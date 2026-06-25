@@ -7,9 +7,78 @@ from jinja2 import FileSystemLoader
 DEFAULT_STALE_DAYS = 90
 DEFAULT_MAX_ROLES = 5
 
+REQUIRED_COLUMNS = [
+
+    "username",
+
+    "full_name",
+
+    "department",
+
+    "roles",
+
+    "last_login_days_ago",
+
+    "mfa_enabled",
+
+    "account_status",
+
+    "manager"
+
+]
+
+
+def validate_csv(df):
+
+    missing = [
+
+        column
+
+        for column in REQUIRED_COLUMNS
+
+        if column not in df.columns
+
+    ]
+
+    if missing:
+
+        raise ValueError(
+
+            f"Missing required columns: "
+
+            f"{', '.join(missing)}"
+
+        )
+
+    if df.empty:
+
+        raise ValueError(
+
+            "CSV contains no user records."
+
+        )
+
 
 def load_users(path):
     df = pd.read_csv(path)
+
+    try:
+        df = pd.read_csv(path)
+
+    except Exception as e:
+
+        raise FileNotFoundError(
+
+            f"Input file not found: {path}"
+        )
+
+    except Exception as exc:
+
+        raise RuntimeError(
+            f"Failed to read CSV: {exc}"
+        )
+
+    validate_csv(df)
 
     df["mfa_enabled"] = (
         df["mfa_enabled"]
