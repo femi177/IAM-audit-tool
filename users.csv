@@ -15,7 +15,7 @@ pnwachukwu,Patricia Nwachukwu,Finance,Junior Financial Analyst,Finance_Reader,91
 gwatson,George Watson,Finance,Payroll Specialist,"Finance_Reader,Payroll_Admin",6,True,Active,mharrison,Manchester
 htaylor,Hannah Taylor,Finance,Finance Assistant,Finance_Reader,200,False,Inactive,mharrison,London
 nclarke,Nathan Clarke,IT,IT Director,"IT_Admin,Network_Admin,Cloud_Admin,Server_Admin,IT_ServiceDesk",2,True,Active,dpatel,London
-bwright,Bethany Wright,IT,Senior Systems Engineer,"IT_Admin,Server_Admin,Cloud_Admin",4,True,Active,nclarke,London
+bwright,Bethany Wright,IT,Senior Systems Engineer,"IT_Admin,Server_Admin,Cloud_Admin",45,False,Active,nclarke,London
 oadeleke,Oluwaseun Adeleke,IT,Cloud Infrastructure Engineer,"Cloud_Admin,Server_Admin,IT_ServiceDesk",3,True,Active,nclarke,London
 fwalker,Fiona Walker,IT,Network Engineer,"Network_Admin,IT_ServiceDesk",6,True,Active,nclarke,Manchester
 dmorris,Daniel Morris,IT,Systems Administrator,"Server_Admin,IT_ServiceDesk",9,True,Active,bwright,London

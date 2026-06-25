@@ -194,8 +194,64 @@ def run_checks(df):
             )
 
         if user["manager"] == "":
+
             findings.append(
-                f"[MEDIUM] IAM-005 {user['username']} missing manager"
+
+                f"[MEDIUM] IAM-005 "
+
+                f"{user['username']} "
+                f"missing manager"
+
+            )
+
+        if (
+
+            has_admin_role(
+
+                user["roles_list"]
+
+            )
+
+            and
+
+            user["last_login_days_ago"]
+
+            > DORMANT_ADMIN_DAYS
+
+        ):
+
+            findings.append(
+
+                f"[CRITICAL] IAM-006 "
+
+                f"{user['username']} "
+
+                f"dormant privileged account"
+
+            )
+
+        if (
+
+            has_admin_role(
+
+                user["roles_list"]
+
+            )
+
+            and
+
+            not user["mfa_enabled"]
+
+        ):
+
+            findings.append(
+
+                f"[CRITICAL] IAM-007 "
+
+                f"{user['username']} "
+
+                f"privileged account without MFA"
+
             )
 
     return findings
@@ -208,7 +264,9 @@ def build_rule_summary(findings):
         "IAM-002": "Excessive Roles",
         "IAM-003": "MFA Disabled",
         "IAM-004": "Inactive Account",
-        "IAM-005": "Missing Manager"
+        "IAM-005": "Missing Manager",
+        "IAM-006": "Dormant Privileged Account",
+        "IAM-007": "Privileged Account without MFA"
     }
 
     counts = {rule: 0 for rule in rules}
@@ -268,6 +326,33 @@ def score_users(findings):
         )
 
     return scores
+
+
+ADMIN_ROLE_KEYWORDS = {
+
+    "Admin",
+
+    "IT_Admin",
+
+    "SOC_Manager",
+
+    "Executive_Full"
+
+}
+
+
+DORMANT_ADMIN_DAYS = 30
+
+
+def has_admin_role(roles):
+
+    return any(
+
+        role in ADMIN_ROLE_KEYWORDS
+
+        for role in roles
+
+    )
 
 
 def generate_html(findings):
