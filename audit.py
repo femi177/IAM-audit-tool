@@ -27,6 +27,18 @@ REQUIRED_COLUMNS = [
 
 ]
 
+SOD_CONFLICTS = [
+
+    ("Finance_Approver_L3", "Payroll_Admin"),
+
+    ("HR_Admin", "Finance_Approver_L3"),
+
+    ("IT_Admin", "Security_Admin"),
+
+    ("Admin_Global", "Finance_Approver_L3")
+
+]
+
 VALID_ACCOUNT_STATUS = {
 
     "active",
@@ -252,7 +264,30 @@ def run_checks(df):
 
                 f"privileged account without MFA"
 
+
             )
+
+        for role1, role2 in SOD_CONFLICTS:
+            if (
+
+                role1 in user["roles_list"]
+
+                and
+
+                role2 in user["roles_list"]
+
+            ):
+                findings.append(
+
+                    f"[HIGH] IAM-008 "
+
+                    f"{user['username']} "
+
+                    f"SoD conflict: "
+
+                    f"{role1} + {role2}"
+
+                )
 
     return findings
 
@@ -266,7 +301,8 @@ def build_rule_summary(findings):
         "IAM-004": "Inactive Account",
         "IAM-005": "Missing Manager",
         "IAM-006": "Dormant Privileged Account",
-        "IAM-007": "Privileged Account without MFA"
+        "IAM-007": "Privileged Account without MFA",
+        "IAM-008": "Segregation of Duties Conflict",
     }
 
     counts = {rule: 0 for rule in rules}
