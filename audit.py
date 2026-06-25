@@ -37,6 +37,16 @@ VALID_ACCOUNT_STATUS = {
 
 }
 
+SEVERITY_SCORE = {
+
+    "CRITICAL": 5,
+
+    "HIGH": 3,
+
+    "MEDIUM": 1
+
+}
+
 
 def validate_csv(df):
 
@@ -223,6 +233,43 @@ def build_rule_summary(findings):
     ]
 
 
+def score_users(findings):
+
+    scores = {}
+
+    for finding in findings:
+
+        username = finding.split()[2]
+
+        severity = (
+
+            finding
+
+            .split("]")[0]
+
+            .replace("[", "")
+
+        )
+
+        scores[username] = (
+
+            scores.get(
+
+                username,
+
+                0
+
+            )
+
+            +
+
+            SEVERITY_SCORE[severity]
+
+        )
+
+    return scores
+
+
 def generate_html(findings):
 
     env = Environment(
@@ -302,6 +349,8 @@ def main():
 
     findings = run_checks(df)
 
+    scores = score_users(findings)
+
     generate_html(findings)
 
     print("\nHTML report generated")
@@ -324,6 +373,25 @@ def main():
     print(f"High     : {high}")
     print(f"Medium   : {med}")
     print(f"Total    : {len(findings)}")
+    print("------------------------------")
+
+    for username, score in sorted(
+
+        scores.items(),
+
+        key=lambda x: x[1],
+
+        reverse=True
+
+    )[:5]:
+
+        print(
+
+            f"{username:<15}"
+
+            f"{score}"
+
+        )
 
 
 if __name__ == "__main__":
